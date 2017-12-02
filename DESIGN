@@ -1,0 +1,39 @@
+Inverted monopoly with aliens (i.e. negative feedback loop)
+
+Single player game
+Defend your owned estates
+Dice roll to move
+Option to claim, defend, or move on, at each territory.
+Turn based, 10x10 board. Maybe not a ring.
+
+Zombies spread through neighbourhoods.
+Neighbourhoods have residents.
+
+You win when you own the whole map.  You lose when everyone is
+dead. You never die.  Buildings initially have survivors in them. Once
+you've taken a building, the survivors are now exposed. If you don't
+defend the building in time, that person dies.
+
+Options:
+- Left/Right
+- Wait
+
+Maybe:
+- accelerated speed (bike?)
+- fortifications (hotels?)
+- chance/jail
+- boss?
+
+Buildings of same colour are blocks that survivors can move through;
+they give you time to arrive. The equivalent of chance/community is
+open areas. Stations when uncovered are fast travel. Utilities need to
+be some kind of boost.
+
+Maybe just simple vector colour graphics. A nice font, high
+res. Initial fog of war.
+
+What if survivors die on contact with aliens? And the aliens move
+randomly, but will flee from the player? The game then becomes a
+rescue mission.
+
+Randomly generating boards would be fairly easy.
