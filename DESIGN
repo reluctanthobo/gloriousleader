@@ -37,3 +37,110 @@ randomly, but will flee from the player? The game then becomes a
 rescue mission.
 
 Randomly generating boards would be fairly easy.
+
+--------------
+
+Needs more interesting moment to moment choices
+Single direction of movement (like monopoly), but not randomised
+
+There needs to be a reason to choose one tile over another
+
+Possible goals:
+- kill the alien
+- clear the board (impossible with the alien chasing?)
+- rescue survivors
+
+Needs a resource that feeds a negative loop. Alien landing on resources
+costs you rather than them (direct inversion of monopoly)? How does
+building fit in?
+
+Maybe each square has a potential upgrade, or set of upgrades. Some
+places could let you build traps. Some places could let you build (?)
+resource farms.
+
+What if survivors move too once unlocked, and the alien can kill them,
+forcing the player to delay the alien. How does the player delay the
+alien? What if trashing stuff delays the alien? More build up = longer
+delay, but more (money?) wasted. Maybe also powers up the alien,
+making it grow(?)
+
+What if the board changes, each time round (so there's no permanent
+fixtures?) At this point, it's basically a line and you can never
+return to where you were.
+
+Actions:
+- search (may uncover survivors, loot(?))
+- move (short list of places you can move to)
+- fortify (costs time, resources?)
+
+5 visible squares (2 behind, 2 ahead). Rather than rolls, use
+sim time like ADOM; so in each time unit the monster and the 
+people move some amount. Have to be on same square as survivor to use
+survivor's skills. Survivors all move independently.
+
+Make it to the end to win. Show progress bar of some kind. Need
+some way to prevent you just outrunning the alien and making all the
+mechanics pointless.
+
+Ignoring skinning, think of the squares as colours. One colour per
+survivor type. Each buff speeds you up immediately, and the monster up
+some time later. Your buff fades, the monster's does not. More
+survivors = stronger buff.
+
+Buffs: 
+ Electric - speed survivors
+ Train - jump ahead
+ Building - find more survivors?
+ Building - fortify
+ River(?) - barrier, needs survivor
+
+-------
+
+ Grassland - energy?
+
+Ability to move (stamina) ticks down each time you advance. When it
+reaches zero, you can't move, then the alien catches you. If you
+advance, you can't return to where you came from. Each square has an
+energy cost. Energy replenishes slowly.
+
+Types of city environment:
+- parks
+- factories
+- office blocks
+- ruins
+
+What if there's no alien, only starvation? But then, what's the point
+of survivors?
+
+Areas with defence bonuses.
+
+Game is much easier to design with some more granular resource than
+any of the ones we have available. 
+
+Maybe survivors are the only resource we need (and time). Maybe it's
+simpler if the alien just jumps forward after eating a
+survivor. Negates the risk reward (it's either universally good
+because they jump forward less far, or it's universally bad because
+they jump forward farther). 
+
+So what about: it always jumps forward the same distance, but it may
+be delayed by different amounts, from a lot (big gain) to very little
+(small gain). Maybe survivor type and building type interact.
+
+Key variables here:
+- How far away the alien is.
+- Where the survivors are.
+- What squares are around you.
+
+Survivor/square interaction is the most interesting part I think.
+
+Monopoly has 8 colours + trains + 2 utilities. This seems like a lot
+for these purposes. Even three colours might be enough:
+
+- soldier
+- engineer
+- scientist
+
+Soldier: fortify
+Engineer: repair
+Scientist: alien tech?
