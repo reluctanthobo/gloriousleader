@@ -3,6 +3,8 @@
 
 #include <SDL2/SDL.h>
 
+struct camera;
+
 struct level {
   unsigned  * color;
   char     ** name;
@@ -11,7 +13,7 @@ struct level {
 };
 
 struct level *level_new_random(unsigned elements);
-void level_draw(const struct level *level, SDL_Renderer *renderer, unsigned offset);
+void level_draw(const struct level *level, struct camera *cam);
 void level_free(struct level *level);
 
 #endif

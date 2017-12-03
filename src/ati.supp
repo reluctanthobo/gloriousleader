@@ -1,0 +1,93 @@
+# ATI's linux drivers don't work at all well with valgrind
+# suppress basically everything here
+{
+  fglrx.so
+  Memcheck:Cond
+  ...
+  obj:/usr/lib/dri/fglrx_dri.so
+  ...
+}
+{
+  fglrx.so
+  Memcheck:Value1
+  ...
+  obj:/usr/lib/dri/fglrx_dri.so
+  ...
+}
+{
+  fglrx.so
+  Memcheck:Value2
+  ...
+  obj:/usr/lib/dri/fglrx_dri.so
+  ...
+}
+{
+  fglrx.so
+  Memcheck:Value4
+  ...
+  obj:/usr/lib/dri/fglrx_dri.so
+  ...
+}
+{
+  fglrx.so
+  Memcheck:Value8
+  ...
+  obj:/usr/lib/dri/fglrx_dri.so
+}
+{
+  fglrx.so
+  Memcheck:Addr1
+  ...
+  obj:/usr/lib/dri/fglrx_dri.so
+  ...
+}
+{
+  fglrx.so
+  Memcheck:Addr2
+  ...
+  obj:/usr/lib/dri/fglrx_dri.so
+  ...
+}
+{
+  fglrx.so
+  Memcheck:Addr4
+  ...
+  obj:/usr/lib/dri/fglrx_dri.so
+  ...
+}
+{
+  fglrx.so
+  Memcheck:Addr8
+  ...
+  obj:/usr/lib/dri/fglrx_dri.so
+  ...
+}
+{
+  fglrx.so
+  Memcheck:Jump
+  ...
+  obj:/usr/lib/dri/fglrx_dri.so
+  ...
+}
+{
+  fglrx.so
+  Memcheck:Free
+  ...
+  obj:/usr/lib/dri/fglrx_dri.so
+  ...
+}
+{
+  fglrx.so
+  Memcheck:Leak
+  ...
+  obj:/usr/lib/dri/fglrx_dri.so
+  ...
+}
+{
+  fglrx.so
+  Memcheck:Param
+  ioctl(generic)
+  ...
+  obj:/usr/lib/dri/fglrx_dri.so
+  ...
+}
