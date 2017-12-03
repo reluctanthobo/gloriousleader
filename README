@@ -1,0 +1,40 @@
+Glorious Leader
+---------------
+
+A very basic entry for Ludum Dare 40.
+
+You play the glorious leader, in his big black car, fleeing an alien
+attack on the city. You must escape the city to win. As you flee,
+citizens will emerge from hiding to flee behind you. You're faster
+than they are, but the aliens are faster than all of you.
+
+This is a turn based game, with a half second turn timer (a turn happens
+automatically twice a second).
+
+The controls are:
+- cursor left: reverse
+- cursor right: forward
+- enter: wait a turn
+- space: issue orders
+
+The aliens are faster than you are. The only way to make good your
+escape is to use the efforts of your citizens.
+
+Red citizens are soldiers. Red city blocks are defensible positions
+that you can tell them to hold. The taller the city block, the longer
+it will take the aliens to reduce it, if it is defended.
+
+Green citizens are engineers. Green city blocks are power stations,
+that you can tell them to man. When the power's on, the speed of the
+aliens is much reduced. The engineers will have to stay behind. The
+taller the block, the bigger the generator, and the longer power
+lasts.
+
+Blue citizens are scientists. Blue city blocks are teleporters, that
+you can order them to activate. They will have to stay behind, but you
+will leap forward. The taller the block, the further forward you will
+leap.
+
+The citizens are the only thing that can save you, but more citizens
+also provoke more aliens to chase you, and citizens not defending a
+point don't slow the aliens down at all.
