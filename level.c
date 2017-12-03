@@ -102,7 +102,7 @@ void level_draw(const struct level *level, struct camera *cam) {
   }
 
   for( i=start; i<end; ++i )  {
-    if( i >= 0 && i < level->num_tiles ) {
+    if( i >= 0 && i < (int)level->num_tiles ) {
       const int offset_x = i * TILE_W - cam->x;
       draw_one_tile(level, (unsigned)i, cam->renderer, offset_x);
     }

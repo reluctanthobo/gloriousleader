@@ -44,22 +44,24 @@ int run_game(SDL_Renderer *renderer) {
   struct player *player;
   unsigned live_survivors;
   unsigned live_monsters;
+  unsigned total_survivors;
   unsigned power;
-  uint end_of_turn;
+  unsigned end_of_turn;
   int done;
 
-  player_img = image_new("../res/player.png", renderer);
-  survivor_img[0] = image_new("../res/soldier.png", renderer);
-  survivor_img[1] = image_new("../res/engineer.png", renderer);
-  survivor_img[2] = image_new("../res/scientist.png", renderer);
-  monster_img = image_new("../res/alien.png", renderer);
-  bullet_img = image_new("../res/bullet.png", renderer);
-  instructions_img = image_new("../res/instructions.png", renderer);
+  player_img = image_new("player.png", renderer);
+  survivor_img[0] = image_new("soldier.png", renderer);
+  survivor_img[1] = image_new("engineer.png", renderer);
+  survivor_img[2] = image_new("scientist.png", renderer);
+  monster_img = image_new("alien.png", renderer);
+  bullet_img = image_new("bullet.png", renderer);
+  instructions_img = image_new("instructions.png", renderer);
   
   level = level_new_random(120);
   cam = camera_new(renderer, 1280, 720, 0);
   player = player_new(20, 3, player_img);
 
+  total_survivors = 0;
   live_survivors = 0;
   live_monsters = 0;
   power = 0;
@@ -179,7 +181,7 @@ int run_game(SDL_Renderer *renderer) {
       }
 
       {
-	const float scale = (live_survivors < 25 ? 25 : live_survivors > 75 ? 75 : live_survivors );
+	const float scale = 25+(total_survivors < 50 ? total_survivors : 50 );
 	if( rand()/(float)RAND_MAX < scale/100.0)  {
 	  static const int colors[10] = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 2 };
 	  struct survivor *s;
@@ -188,6 +190,7 @@ int run_game(SDL_Renderer *renderer) {
 	  s = survivor_new(color, "", player->pos, survivor_img[color]);
 	  list_append(survivors, s);
 	  ++live_survivors;
+	  ++total_survivors;
 	}
       }
 
@@ -206,7 +209,7 @@ int run_game(SDL_Renderer *renderer) {
 	  struct list_entry *cur2;
 	  struct list_entry *next2;
 	  struct monster *m = cur->data;
-	  int monster_pos;
+	  unsigned monster_pos;
 	  int defended;
 	  next = cur->next;
 	  monster_pos = m->pos + monster_speed;
@@ -231,7 +234,7 @@ int run_game(SDL_Renderer *renderer) {
 	    }
 	  }
 	  {
-	    int i;
+	    unsigned i;
 	    for( i=m->pos; i<monster_pos; ++i ) {
 	      level->quality[i] = 0;
 	    }
@@ -332,6 +335,9 @@ int run_game(SDL_Renderer *renderer) {
   camera_free(cam);
   player_free(player);
   list_free(survivors);
+  list_free(monsters);
+  image_free(bullet_img);
+  image_free(instructions_img);
   image_free(player_img);
   image_free(monster_img);
   image_free(survivor_img[0]);
@@ -349,14 +355,14 @@ static SDL_Texture *load_image(const char *filename, SDL_Renderer *r) {
   return ret;
 }
 
-int main(int argc, char **argv) {
+int main(int argc __attribute__((unused)), char **argv __attribute__((unused)) ) {
   SDL_Renderer *renderer;
   SDL_Window *screen;
   SDL_Texture *win_screen;
   SDL_Texture *fail_screen;
   SDL_Texture *title_screen;
 
-  srand(time(NULL));
+  srand((unsigned)SDL_GetPerformanceCounter());
 
   SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO);
   IMG_Init(IMG_INIT_PNG);
@@ -370,9 +376,9 @@ int main(int argc, char **argv) {
   
   renderer = SDL_CreateRenderer(screen, -1, 0);
 
-  win_screen = load_image("../res/win.png", renderer);
-  fail_screen = load_image("../res/fail.png", renderer);
-  title_screen = load_image("../res/title.png", renderer);
+  win_screen = load_image("win.png", renderer);
+  fail_screen = load_image("fail.png", renderer);
+  title_screen = load_image("title.png", renderer);
 
   for( ;; ) {
     int retcode;

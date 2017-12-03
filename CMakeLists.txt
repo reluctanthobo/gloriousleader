@@ -16,7 +16,7 @@ endif()
 set(CMAKE_C_FLAGS "-g -Wall -Wextra -O3 --std=gnu99 -Werror")
 
 if( NOT WIN32 )
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DPROFILE -pedantic -pg")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pedantic")
 endif()
 
 set(BASIC_LIBS

@@ -56,6 +56,8 @@ void list_remove(struct list *list, void *element) {
       } else {
 	list->tail = cur->prev;
       }
+      free(cur);
+      break;
     }
   }
 }
